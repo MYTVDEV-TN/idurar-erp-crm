@@ -14,6 +14,8 @@ import RecentTable from './components/RecentTable';
 import SummaryCard from './components/SummaryCard';
 import PreviewCard from './components/PreviewCard';
 import CustomerPreviewCard from './components/CustomerPreviewCard';
+import FinancialSummaryWidget from '@/components/FinancialSummaryWidget';
+import DarkModeToggle from '@/components/DarkModeToggle';
 
 import { selectMoneyFormat } from '@/redux/settings/selectors';
 import { useSelector } from 'react-redux';
@@ -154,6 +156,15 @@ export default function DashboardModule() {
           />
         </Row>
         <div className="space30"></div>
+        
+        {/* New Financial Summary Widget */}
+        <Row gutter={[32, 32]}>
+          <Col className="gutter-row w-full" span={24}>
+            <FinancialSummaryWidget />
+          </Col>
+        </Row>
+        <div className="space30"></div>
+        
         <Row gutter={[32, 32]}>
           <Col className="gutter-row w-full" sm={{ span: 24 }} md={{ span: 24 }} lg={{ span: 18 }}>
             <div className="whiteBox shadow" style={{ height: 458 }}>

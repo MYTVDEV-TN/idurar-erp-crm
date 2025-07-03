@@ -7,6 +7,7 @@ import PageLoader from '@/components/PageLoader';
 import AuthRouter from '@/router/AuthRouter';
 import Localization from '@/locale/Localization';
 import { notification } from 'antd';
+import FeedbackWidget from '@/components/FeedbackWidget';
 
 const ErpApp = lazy(() => import('./ErpApp'));
 
@@ -15,6 +16,7 @@ const DefaultApp = () => (
     <AppContextProvider>
       <Suspense fallback={<PageLoader />}>
         <ErpApp />
+        <FeedbackWidget />
       </Suspense>
     </AppContextProvider>
   </Localization>

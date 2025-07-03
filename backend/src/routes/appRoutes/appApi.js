@@ -5,6 +5,8 @@ const router = express.Router();
 const appControllers = require('@/controllers/appControllers');
 const { routesList } = require('@/models/utils');
 
+const stripeController = require('@/controllers/appControllers/stripeController');
+
 const routerApp = (entity, controller) => {
   router.route(`/${entity}/create`).post(catchErrors(controller['create']));
   router.route(`/${entity}/read/:id`).get(catchErrors(controller['read']));
@@ -29,5 +31,10 @@ routesList.forEach(({ entity, controllerName }) => {
   const controller = appControllers[controllerName];
   routerApp(entity, controller);
 });
+
+// Stripe payment routes
+router.route('/stripe/create-payment-intent').post(catchErrors(stripeController.createPaymentIntent));
+router.route('/stripe/webhook').post(catchErrors(stripeController.handleWebhook));
+router.route('/stripe/payment-methods/:clientId').get(catchErrors(stripeController.getPaymentMethods));
 
 module.exports = router;

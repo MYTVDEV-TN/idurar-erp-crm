@@ -13,6 +13,7 @@ import { FILE_BASE_URL } from '@/config/serverApiConfig';
 import useLanguage from '@/locale/useLanguage';
 
 import UpgradeButton from './UpgradeButton';
+import DarkModeToggle from '@/components/DarkModeToggle';
 
 export default function HeaderContent() {
   const currentAdmin = useSelector(selectCurrentAdmin);
@@ -121,13 +122,12 @@ export default function HeaderContent() {
         {/* </Badge> */}
       </Dropdown>
 
+      {/* Dark Mode Toggle */}
+      <DarkModeToggle />
+
       {/* <AppsButton /> */}
 
       <UpgradeButton />
     </Header>
   );
 }
-
-//  console.log(
-//    '🚀 Welcome to IDURAR ERP CRM! Did you know that we also offer commercial customization services? Contact us at hello@idurarapp.com for more information.'
-//  );

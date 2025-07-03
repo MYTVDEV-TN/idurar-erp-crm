@@ -84,6 +84,29 @@ export default function GeneralSettingForm() {
       >
         <Input />
       </Form.Item>
+      
+      <Form.Item
+        label={translate('Theme')}
+        name="idurar_app_theme"
+        valuePropName="checked"
+        initialValue="light"
+      >
+        <Select
+          options={[
+            { value: 'light', label: translate('Light') },
+            { value: 'dark', label: translate('Dark') },
+          ]}
+        />
+      </Form.Item>
+      
+      <Form.Item
+        label={translate('Enable Stripe Payments')}
+        name="idurar_app_stripe_enabled"
+        valuePropName="checked"
+        initialValue={false}
+      >
+        <Switch checkedChildren={<CheckOutlined />} unCheckedChildren={<CloseOutlined />} />
+      </Form.Item>
     </div>
   );
 }
