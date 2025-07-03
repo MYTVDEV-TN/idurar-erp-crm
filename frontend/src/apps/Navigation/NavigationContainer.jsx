@@ -26,6 +26,9 @@ import {
   FilterOutlined,
   WalletOutlined,
   ReconciliationOutlined,
+  BranchesOutlined,
+  ApiOutlined,
+  LockOutlined,
 } from '@ant-design/icons';
 
 const { Sider } = Layout;
@@ -85,6 +88,21 @@ function Sidebar({ collapsible, isMobile = false }) {
       key: 'taxes',
       label: <Link to={'/taxes'}>{translate('taxes')}</Link>,
       icon: <ShopOutlined />,
+    },
+    {
+      key: 'branches',
+      label: <Link to={'/branches'}>{translate('branches')}</Link>,
+      icon: <BranchesOutlined />,
+    },
+    {
+      key: 'userRoles',
+      label: <Link to={'/user-roles'}>{translate('user_roles')}</Link>,
+      icon: <LockOutlined />,
+    },
+    {
+      key: 'apiKeys',
+      label: <Link to={'/api-keys'}>{translate('api_keys')}</Link>,
+      icon: <ApiOutlined />,
     },
     {
       key: 'generalSettings',

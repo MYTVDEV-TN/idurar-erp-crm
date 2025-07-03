@@ -72,6 +72,29 @@ export default function GeneralSettingForm() {
           ]}
         />
       </Form.Item>
+      
+      <Form.Item
+        label={translate('Language')}
+        name="idurar_app_language"
+        rules={[
+          {
+            required: true,
+          },
+        ]}
+      >
+        <Select
+          showSearch
+          style={{
+            width: '100%',
+          }}
+          options={[
+            { value: 'en_us', label: 'English (US)' },
+            { value: 'ar_eg', label: 'العربية (Arabic)' },
+            { value: 'fr_fr', label: 'Français (French)' },
+          ]}
+        />
+      </Form.Item>
+      
       <Form.Item
         label={translate('email')}
         name="idurar_app_company_email"
@@ -88,8 +111,11 @@ export default function GeneralSettingForm() {
       <Form.Item
         label={translate('Theme')}
         name="idurar_app_theme"
-        valuePropName="checked"
-        initialValue="light"
+        rules={[
+          {
+            required: true,
+          },
+        ]}
       >
         <Select
           options={[
@@ -103,7 +129,6 @@ export default function GeneralSettingForm() {
         label={translate('Enable Stripe Payments')}
         name="idurar_app_stripe_enabled"
         valuePropName="checked"
-        initialValue={false}
       >
         <Switch checkedChildren={<CheckOutlined />} unCheckedChildren={<CloseOutlined />} />
       </Form.Item>

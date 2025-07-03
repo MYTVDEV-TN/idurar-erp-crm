@@ -29,6 +29,11 @@ const Profile = lazy(() => import('@/pages/Profile'));
 
 const About = lazy(() => import('@/pages/About'));
 
+// New pages for multi-language, user roles, and API
+const UserRoles = lazy(() => import('@/pages/UserRoles'));
+const ApiKeys = lazy(() => import('@/pages/ApiKeys'));
+const Branches = lazy(() => import('@/pages/Branches'));
+
 let routes = {
   expense: [],
   default: [
@@ -123,6 +128,21 @@ let routes = {
       path: '/profile',
       element: <Profile />,
     },
+    
+    // New routes for multi-language, user roles, and API
+    {
+      path: '/user-roles',
+      element: <UserRoles />,
+    },
+    {
+      path: '/api-keys',
+      element: <ApiKeys />,
+    },
+    {
+      path: '/branches',
+      element: <Branches />,
+    },
+    
     {
       path: '*',
       element: <NotFound />,

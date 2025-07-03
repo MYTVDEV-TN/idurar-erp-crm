@@ -10,6 +10,7 @@ const coreApiRouter = require('./routes/coreRoutes/coreApi');
 const coreDownloadRouter = require('./routes/coreRoutes/coreDownloadRouter');
 const corePublicRouter = require('./routes/coreRoutes/corePublicRouter');
 const adminAuth = require('./controllers/coreControllers/adminAuth');
+const apiKeyAuth = require('./middlewares/apiKeyAuth');
 
 const errorHandlers = require('./handlers/errorHandlers');
 const erpApiRouter = require('./routes/appRoutes/appApi');
@@ -39,6 +40,10 @@ app.use(compression());
 app.use('/api', coreAuthRouter);
 app.use('/api', adminAuth.isValidAuthToken, coreApiRouter);
 app.use('/api', adminAuth.isValidAuthToken, erpApiRouter);
+
+// API routes with API key authentication
+app.use('/api/v1', apiKeyAuth, erpApiRouter);
+
 app.use('/download', coreDownloadRouter);
 app.use('/public', corePublicRouter);
 

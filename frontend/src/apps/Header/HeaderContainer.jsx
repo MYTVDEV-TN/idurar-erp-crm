@@ -14,6 +14,8 @@ import useLanguage from '@/locale/useLanguage';
 
 import UpgradeButton from './UpgradeButton';
 import DarkModeToggle from '@/components/DarkModeToggle';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
+import BranchSelector from '@/components/BranchSelector';
 
 export default function HeaderContent() {
   const currentAdmin = useSelector(selectCurrentAdmin);
@@ -121,6 +123,12 @@ export default function HeaderContent() {
         </Avatar>
         {/* </Badge> */}
       </Dropdown>
+
+      {/* Language Switcher */}
+      <LanguageSwitcher />
+
+      {/* Branch Selector */}
+      <BranchSelector />
 
       {/* Dark Mode Toggle */}
       <DarkModeToggle />
