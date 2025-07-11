@@ -4,10 +4,10 @@ const { catchErrors } = require('../../handlers/errorHandlers');
 
 const router = express.Router();
 
-const adminController = require('@/controllers/coreControllers/adminController');
-const settingController = require('@/controllers/coreControllers/settingController');
+const adminController = require('../../controllers/coreControllers/adminController');
+const settingController = require('../../controllers/coreControllers/settingController');
 
-const { singleStorageUpload } = require('@/middlewares/uploadMiddleware');
+const { singleStorageUpload } = require('../../middlewares/uploadMiddleware');
 
 // //_______________________________ Admin management_______________________________
 
