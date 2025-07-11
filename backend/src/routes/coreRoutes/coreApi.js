@@ -1,6 +1,6 @@
 const express = require('express');
 
-const { catchErrors } = require('@/handlers/errorHandlers');
+const { catchErrors } = require('../../handlers/errorHandlers');
 
 const router = express.Router();
 
