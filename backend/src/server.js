@@ -14,7 +14,10 @@ if (major < 20) {
 require('dotenv').config({ path: '.env' });
 require('dotenv').config({ path: '.env.local' });
 
-mongoose.connect(process.env.DATABASE);
+mongoose.connect(process.env.DATABASE, {
+  serverSelectionTimeoutMS: 30000, // Increase timeout to 30 seconds
+  socketTimeoutMS: 45000, // Increase socket timeout to 45 seconds
+});
 
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
