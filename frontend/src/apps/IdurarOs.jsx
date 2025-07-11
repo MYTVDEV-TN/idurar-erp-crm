@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect, useState } from 'react';
 
 import { useSelector } from 'react-redux';
 import { selectAuth } from '@/redux/auth/selectors';
+import { login } from '@/redux/auth/actions';
 import { AppContextProvider } from '@/context/appContext';
 import PageLoader from '@/components/PageLoader';
 import AuthRouter from '@/router/AuthRouter';
@@ -24,10 +25,22 @@ const DefaultApp = () => (
 
 export default function IdurarOs() {
   const { isLoggedIn } = useSelector(selectAuth);
+  const dispatch = useDispatch();
+  const [demoMode, setDemoMode] = useState(false);
 
   console.log(
     '🚀 Welcome to IDURAR ERP CRM! Did you know that we also offer commercial customization services? Contact us at hello@idurarapp.com for more information.'
   );
+
+  // Function to enable demo mode
+  const enableDemoMode = () => {
+    const demoLoginData = {
+      email: 'admin@demo.com',
+      password: 'admin123'
+    };
+    dispatch(login({ loginData: demoLoginData }));
+    setDemoMode(true);
+  };
 
   // // Online state
   // const [isOnline, setIsOnline] = useState(navigator.onLine);
@@ -63,10 +76,27 @@ export default function IdurarOs() {
   //   };
   // }, [navigator.onLine]);
 
-  if (!isLoggedIn)
+  if (!isLoggedIn && !demoMode)
     return (
       <Localization>
-        <AuthRouter />
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
+          <AuthRouter />
+          <button 
+            onClick={enableDemoMode}
+            style={{
+              marginTop: '20px',
+              padding: '10px 20px',
+              backgroundColor: '#1890ff',
+              color: 'white',
+              border: 'none',
+              borderRadius: '4px',
+              cursor: 'pointer',
+              fontSize: '16px'
+            }}
+          >
+            Mode Démo (Sans Connexion)
+          </button>
+        </div>
       </Localization>
     );
   else {
