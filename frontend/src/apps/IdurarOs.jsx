@@ -1,6 +1,6 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { selectAuth } from '@/redux/auth/selectors';
 import { login } from '@/redux/auth/actions';
 import { AppContextProvider } from '@/context/appContext';
